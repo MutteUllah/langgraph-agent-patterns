@@ -62,7 +62,7 @@ Activate the environment with `source .venv/bin/activate` on POSIX shells or `.\
 python -m pip install -r requirements.txt
 ```
 
-The direct dependency pins were read from installed metadata in the original development environment. They are not a complete transitive lockfile. A fresh dependency installation and provider execution have not been validated as part of the recorded offline checks.
+The direct dependency pins were read from installed metadata in the original development environment. They are not a complete transitive lockfile. A fresh dependency installation, syntax compilation, and offline tests passed in [Ubuntu GitHub Actions with Python 3.10](https://github.com/MutteUllah/langgraph-agent-patterns/actions/runs/38733728701). Gemini provider execution remains untested.
 
 ### Configuration
 
@@ -113,7 +113,7 @@ python -m compileall -q a.py project.py example_config.py tool_stubs.py tests
 
 The tests use fake chat responses and constant test embeddings. They exercise actual LangGraph routing, the real LangChain `create_agent` message contract, simulated tool execution, SQLite vector storage, checkpoint persistence, and configuration failures. They do not assert model quality or provider compatibility.
 
-**Recorded on 15 October 2026:** Python syntax compilation passed and **9 offline tests passed** using the original installed dependency environment. Socket connections were blocked during that test run. No provider requests, real searches, emails, or account queries were made. No original secrets or databases were copied. The GitHub Actions workflow is supplied for these checks; a remote CI run is not claimed.
+**Recorded on 15 October 2026:** Python syntax compilation passed and **9 offline tests passed** using the original installed dependency environment. Socket connections were blocked during that local test run. The same syntax and test commands also passed after a fresh dependency installation in [Ubuntu GitHub Actions](https://github.com/MutteUllah/langgraph-agent-patterns/actions/runs/38733728701). No provider requests, real searches, emails, or account queries were made. No original secrets or databases were copied. Gemini credentials, model availability, and provider behavior remain unverified.
 
 ## Project files
 
